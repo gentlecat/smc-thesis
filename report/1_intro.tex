@@ -1,0 +1,21 @@
+\label{sec:introduction}
+
+\section{Motivation}
+\label{sec:motivation}
+
+In 2014 Music Technology Group\footnote{\url{http://www.mtg.upf.edu}} at the Universitat Pompeu Fabra and MetaBrainz Foundation\footnote{\url{https://metabrainz.org}} started AcousticBrainz project\footnote{\url{http://acousticbrainz.org}}. Its main goal is to collect acoustic information about music recordings and make it available to the public. Data is contributed by users using a client application. This application extracts low-level information about recordings, and submits it to the server.\footnote{In the context of AcousticBrainz, \emph{low-level} data consists of descriptors extracted from audio signal and \emph{high-level} data is inferred from datasets for low-level data using machine learning techniques.} Low-level information includes descriptors like MFCC, spectral centroid, pitch salience, silence rate; rhythm descriptors like BPM, beat position, onset rate; tonal descriptors like key, scale, HPCP, etc. The low-level information is then used to compute high-level descriptors (genre, mood, etc.) using machine learning models.
+
+One of the big problems is quality of high-level data. Datasets and machine learning models generated from them do not produce good enough results most of the time~\cite{sturm2014simple}. Apart from previous research, this problem became apparent after AcousitcBrainz users started analysing their collections of recordings, which are much more extensive compared to what is available within the Music Information Retrieval (MIR) community \cite{crosscolleval}. Majority of datasets that are currently used for genre classification contain no more than 1,000 recordings. Structure of these datasets is not good enough either. For example, datasets for genre classification contain no more than 10 genre labels in them. Some of the datasets are not publicly accessible to researchers, so it's difficult to review and improve them \cite{porter2015acousticbrainz}. There are very few publicly available datasets for some semantic facets (instrumentation- or culture-related datasets). Classifiers that are currently used in AcousticBrainz, for example, are based on many private in-house collections\footnote{\url{https://acousticbrainz.org/datasets/accuracy}}.
+
+There is no open framework for community-based systematic creation of datasets, evaluation, collection of feedback. MIREX framework, which is overviewed in the next chapter, is a good platform for evaluation of MIR systems and algorithms that encourages advancements in the MIR field. Despite all its issues, it can be a good model for organizing challenges related to dataset creation. The goal of these challenges would be to improve quality of datasets used for a specific classification task: genre recognition, mood classification, instrument detection, etc.
+
+\section{Goals}
+
+The main goal of this project is to provide open framework for dataset creation described in the previous section.
+
+\begin{enumerate}
+    \item Provide tools to simplify creation and sharing of MIR datasets for classification tasks.
+    \item Encourage people to create, evaluate, improve and share datasets by organizing dataset creation challenges.
+    \item Add a way for people to provide feedback on high-level data produced from models.
+    \item Improve quality and variety of datasets that are used in the MIR
+\end{enumerate}

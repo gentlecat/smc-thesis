@@ -1,0 +1,120 @@
+In order to see how well the system performs we invited people from the AcousticBrainz community to build datasets using new tools in the project. An experimental challenge has been organized to encourage people to build these datasets. Afterwards a survey among people who use the project has been conducted.
+
+%%%%%%
+
+\section{Dataset creation}
+
+Since the original release of the dataset creation feature people created datasets for the following classification tasks:
+\begin{itemize}
+    \item Genre (different subsets)
+    \item Mood
+    \item Gender
+    \item Decade of creation
+    \item Presence of vocals
+\end{itemize}
+
+At the time of writing we had 52 public datasets created by members of the community\footnote{\url{https://acousticbrainz.org/datasets/list}}. Some of these datasets contain classes with over 56 thousand unique recordings\footnote{\url{https://acousticbrainz.org/datasets/9cbd396f-eac7-451e-b20c-60d5ce89967e}}.
+
+%%%%%%
+
+\section{Experimental challenge}
+
+To test the challenge system and encourage people to build datasets for a specific goal, an experimental challenge has been organized\footnote{\url{https://beta.acousticbrainz.org/challenges/14095b3b-4469-4e4d-984e-ef5f1a55962c}}. The goal of it was to build a dataset for classifying music with and without vocals.
+
+\subsection{Taxonomy}
+
+The following class structure requirements have been defined for datasets submitted for the challenge and the validation dataset that was used in it:
+\begin{itemize}
+    \item With vocals
+    \item Without vocals
+\end{itemize}
+
+\subsection{Validation dataset}
+
+Validation dataset, as described in the previous chapter, is used to calculate accuracy of all machine learning models trained from submitted datasets. Validation dataset\footnote{\url{https://beta.acousticbrainz.org/datasets/snapshot/cd91c766-8dad-4449-9daf-3b77fb29cf56}} has been created manually using a Python script\footnote{\url{https://github.com/gentlecat/smc-thesis/tree/master/validation_dataset}} in several steps:
+\begin{enumerate}
+    \item Define a set of specific artists and releases (as MBIDs) which contain recordings that correspond only to specific class. For example, if all recordings that an artist produced have vocals in them then it goes into a set of artists "with vocals". Same applies to releases, which were used when artist had releases that contained recordings that could go into both classes.
+    \item Retrieve all recordings from artists and releases, put them into an associated class. Lists of recordings were retrieved from the MusicBrainz Web Service\footnote{\url{https://musicbrainz.org/doc/Web_Service}}.
+    \item Filter all recordings to make sure that we are left only with those that have at least one low-level data submission in AcousticBrainz project. This is done to make sure that we have low-level data that we can apply to all models at the accuracy measurement step.
+    \item Dump resulting two sets of recordings into a CSV file and import it into AcousticBrainz project as a validation dataset.
+\end{enumerate}
+
+As a result we got a dataset with 105 recordings in ``with vocals'' class and 113 recordings in ``without vocals'' class.
+
+\subsection{Submissions}
+
+Submission process for people who wanted to participate in the challenge was open from July 13, 2016 to August 16, 2016. Everybody could submit their datasets for participation given that they matched required class structure. There was no limit on the number of submissions, but only result with the highest accuracy was selected for each person. In total, 9 people submitted their datasets.
+
+Some of the submissions were ignored because we couldn't calculate models from datasets. This was caused by issues in the Gaia library that is used to generate these models.
+
+\subsection{Results}
+
+Overall results of the challenge can be seen at \url{https://beta.acousticbrainz.org/challenges/14095b3b-4469-4e4d-984e-ef5f1a55962c}. All the models built from submitted datasets correctly classified more than half ($50\%$) of the recordings in validation dataset. Top 4 models had the accuracy over $70\%$ with the best one reaching $77.52\%$.
+
+%%%%%%
+
+\section{User survey}
+
+\subsection{Overview}
+
+After the challenge has concluded, we created a user survey to better understand how people are using new features and what issues they are having. Users have been asked about:
+\begin{itemize}
+    \item Their familiarity with the Music Information Retrieval
+    \item When did they find out about the AcousticBrainz project and what features they used
+    \item Dataset creation
+        \begin{itemize}
+            \item How many datasets they created and what tools they used
+            \item How easy it was to create a dataset and train a model
+        \end{itemize}
+    \item Challenges
+        \begin{itemize}
+            \item If they tried to submit datasets for the experimental challenge
+            \item If the challenge process was clear to them
+            \item How easy it was to use features related to challenges
+        \end{itemize}
+    \item Feedback interface
+        \begin{itemize}
+            \item Understanding of the difference between high-level and low-level data
+            \item If they know what high-level concepts that are currently used on recording summary pages mean
+            \item If they tried using feedback submission interface and how easy it was to use
+        \end{itemize}
+\end{itemize}
+
+In addition to pre-defined answers there was an option to provide suggestions on improvements for each part of the project.
+
+Survey was created and hosted in Google Forms\footnote{\url{https://www.google.com/forms/about/}}. Full contents are in Appendix \ref{app:survey}. It was publicly available from August 8 to August 21, 2016. Everybody with a Google account\footnote{\url{https://en.wikipedia.org/wiki/Google_Account}} could submit answer for the survey. Requiring users to access with their account was necessary to make sure there was just one submission from one person. All submissions were anonymous, but there was an option to specify AcousticBrainz username so that we are able to look into specific issues that users were having.
+
+We invited people to participate in the survey using a blog post in the MetaBrainz Foundation blog\footnote{\url{https://blog.musicbrainz.org/2016/08/18/another-acousticbrainz-update-and-a-survey/}}. We received a total of 13 responses. All of them can be viewed at \url{https://github.com/gentlecat/smc-thesis/tree/master/survey_responses.csv}.
+
+\subsection{Responses}
+
+Most of the participants (85\%) are unfamiliar with the the Music Information Retrieval field of research. 77\% of people knew about the project since it's announcement in late 2014, and 85\% used AcousticBrainz client application to extract low-level data from their music collections and submit it.
+
+\subsubsection{Dataset creation}
+
+Only 54\% of participants created at least one dataset. Most of those who created a dataset also submitted it for the experimental challenge (except 1 person).
+
+\textit{To understand how easy it is to use each feature, for each part of the dataset creation system we used the Likert-type scale: Very difficult, Difficult, Neither easy nor difficult, Easy, Very easy, I didn't use this feature.} For features like model training interface and results viewer, CSV importing most of the participants said that these features were neither easy nor difficult to use. Some found them to be easier, some more difficult. It is possible that some people are more familiar with the way datasets are build and find the process more intuitive. They did, however, find it easier to use the interface for editing and viewing datasets.
+
+Suggested improvements were mostly related to the dataset editor. 
+\begin{itemize}
+    \item Provide an example of how to build a dataset
+    \item Simplify addition of items by allowing to copy full URL of an entity into the form
+    \item Allow to insert multiple items at once
+\end{itemize}
+
+One limitation that was an obstacle when people used datasets to train models: it's mandatory that all recordings that are in a dataset have at least one associated low-level submission in AcousticBrainz. That means people can't just add a recording without checking if the data for it is there.
+
+\subsubsection{Challenges}
+
+54\% of participants submitted their dataset for the experimental challenge. \textit{In this subsection we'll only use answers from those people who submitted at least one dataset for a challenge.}
+
+Most of the participants understood the challenge process. Those who didn't had issues understanding requirements for the dataset structure, submission process, and how results are calculated. Some had issues with challenge search form during submission, don't understand that it's actually a search form. There were also suggestions to make challenges more prominent on the website.
+
+\subsubsection{Feedback interface}
+
+Generally, people who used the feedback feature found it easy to use. Two issues were pointed out.
+
+First is related to understanding of high-level concepts used on the summary page. Survey showed that while some people understand more simple concepts like vocals, gender, and rhythm, this is not the case with more complex ones like danceability, tonality, and timbre. High-level labels can also be confusing. For example, with the output of genre classifier it's not obvious that ``dan'' is dance music or ``jaz'' is jazz. One of the participants suggested to provide additional information about terminology that might be confusing.
+
+Second is about an issue in the interface for submitting the feedback. It is not obvious that there is a way to change feedback that was already sent. Feedback that was previously left is not shown on the summary page after it's closed or refreshed.

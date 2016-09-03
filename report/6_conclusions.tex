@@ -1,0 +1,65 @@
+AcousticBrainz provides a great way to collect low-level data about music. In addition to that it attempts to analyze all this data to extract higher-level information like mood, genre, etc. One of the goals of this master's project was to provide a way to improve the high-level output, which relies on models and datasets to be correct and extensive.
+
+%%%%%%
+
+\section{Conclusions}
+
+There is no open framework for \emph{community-based}, systematic creation of datasets, evaluation, and collection of feedback. We believe that this project as a part of AcousticBrainz fills that gap. It is a useful addition to the AcousticBrainz project specifically and to the MIR community in general.
+
+As shown in chapter~\ref{ch:experiments}, we already have a significant number of datasets for different kinds of classification tasks. Some have thousands of recordings per class, which is more than some of the most used datasets in the MIR contain. These datasets can then be used to generate machine learning models to extract high-level descriptors from low-level data submitted by the community. This allows to test their performance on a large scale. Finally, to understand how well the model performs we provide a way for users to submit their feedback on the high-level output.
+
+Dataset creation challenge system is, in a way, similar to classification tasks in MIREX. The major difference is that our system focuses on quality of datasets and not the algorithms that are used to train machine learning models. As shown in the dataset overview (section~\ref{sec:soa:datasets}), their quality is often overlooked while being one of the more important parts of MIR systems. Experimental challenge related to classification of music with vocals showed us that people are interested in using the tools to build datasets when there is a specific goal at the end.
+
+Based on the feedback that we received in the survey, there are still plenty improvements to be done. Features that we already have are a good starting point and already produce useful results.
+
+%%%%%%
+
+\section{Future work and ideas}
+
+\textit{We have several ideas about next steps for the project. Some of those are result of feedback from the survey, some were suggested by people who work on the project.}
+
+\subsection{Datasets}
+
+\textit{These are ideas related to the web-editor.}
+
+\subsubsection{Populating datasets}
+
+Currently, the only way to add an item (recording) into a dataset is by copying its MBID into a form in the dataset editor. This part of interface is shown in figure \ref{fig:editor_class}.
+
+One improvement that should be made is addition of a search interface for recordings and, possibly releases and artists. Search function can be based on XML Web Service provided by MusicBrainz\footnote{\url{https://wiki.musicbrainz.org/Development/XML_Web_Service/Version_2/Search}}. It allows to search for different entities available in MusicBrainz database.
+
+\subsubsection{Performance improvements}
+
+In general, dataset editor interface is pretty simple and limited. In our informal experiments we found that it becomes harder to use the bigger datasets get. It becomes hard to find specific recordings in classes. UI performance decreases because more recordings need to be rendered on the screen, and each of those recordings requires loading metadata (recording and artist names).
+
+A way to fix this is to do two things:
+\begin{itemize}
+    \item Integrate pagination (split list of recordings into multiple pages)
+    \item Add search for recordings within a class
+\end{itemize}
+
+\subsection{Challenges}
+
+\subsubsection{Multiple validation datasets}
+
+One improvement that can be made to the challenge system is support for multiple validation datasets. That would allow to have separate accuracy measurements for models, which can increase confidence in the result.
+
+\subsubsection{Modifications to validation dataset}
+
+When a challenge is organized, snapshot of validation dataset is created and associated with that challenge. After that there is no way to change contents of a validation dataset.
+
+A way to modify validation dataset that is used with a challenge would be useful for a couple of reasons:
+\begin{enumerate}
+    \item Author of a validation dataset might make mistakes when building it. These mistakes might come up when participants inspect a validation dataset and provide feedback about it.
+    \item There might be a need to extend it by adding more recordings.
+\end{enumerate}
+
+When validation dataset is modified, new snapshot will need to be created and all submissions will need to be reevaluated with new version of that dataset.
+
+%%%%%%
+
+\section{Reproducibility and improvements}
+
+One of the main goals AcousticBrainz project is to provide \emph{open} MIR data for everyone to use. This means that everything we have in the project is open by default: data and source code behind all parts of the project. Everybody can inspect how things work inside and contribute. It's easy to reproduce what's being done within the project.
+
+Other developers are already extending features that were built as a part of this project. Two Google Summer of Code\footnote{\url{https://summerofcode.withgoogle.com/}} students are working on new ways to build and analyze datasets. One is adding a way to train models outside of AcousticBrainz infrastructure on user's machines\footnote{\url{https://summerofcode.withgoogle.com/projects/#4536016085975040}}. Another is adding support for creating datasets that consist of recordings that are not tagged with MusicBrainz Identifiers (MBIDs)\footnote{\url{https://summerofcode.withgoogle.com/projects/#5381549633568768}}.

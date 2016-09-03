@@ -1,0 +1,103 @@
+\documentclass[12pt,a4paper,twoside]{tesi_upf}
+% Guidelines for the project are at https://www.upf.edu/smc/projects/
+% Template is from https://www.upf.edu/bibtic/en/guiesiajudes/eines/tesis/dina4.html
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[catalan,english]{babel}
+\usepackage[cam,a4,center,frame]{crop}
+
+\usepackage[toc,page]{appendix}
+
+\usepackage{tabularx}
+
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+
+\usepackage{hyperref}
+\usepackage[capitalise,nameinlink]{cleveref}
+% Nice formats for \cref
+\crefname{section}{Sect.}{Sect.}
+\Crefname{section}{Section}{Sections}
+\crefname{figure}{Fig.}{Fig.}
+\Crefname{figure}{Figure}{Figures}
+
+% Figures
+\usepackage{graphicx}
+\graphicspath{ {figures/} }
+
+% Fonts
+%\usepackage{garamond}
+\usepackage{times}
+
+% Sense headings: no modificar
+\pagestyle{plain}
+
+\usepackage{makeidx}
+\makeindex
+
+\selectlanguage{english}
+
+
+\title{Tools for building new MIR datasets}
+\subtitle{Master thesis}
+\author{Roman Tsukanov}
+\thyear{2016}
+\department{Department of Information and Communication Technologies}
+\supervisor{Dmitry Bogdanov}
+
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\cleardoublepage
+
+\section*{\Large Abstract}
+Datasets are a very important part of research in the Music Information Retrieval. Unfortunately, some of the most used datasets have issues related to their annotation quality and coverage. We develop tools for building datasets with a goal to fix these issues. Our tools work within the AcousticBrainz project. It already has a significant collection of descriptors extracted from user's music collections.
+
+We try to make dataset creation tools more accessible and flexible by providing multiple ways to create and share datasets. These datasets are then used to generate machine learning models for extracting high-level descriptors like mood and genre. In order to encourage people to build datasets we organize challenges where people can compete by building a dataset for specific classification task. One of the main goals is to make datasets open and easily accessible to encourage their use and improvement. Finally, we provide a way for data consumers to provide feedback on high-level output that they see on the website.
+
+\cleardoublepage
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Introduction}
+\input{1_intro}
+
+\chapter{State of the art}
+\input{2_state_of_the_art}
+
+\chapter{Methodology}
+\input{3_methodology}
+
+\chapter{Implementation}
+\input{4_implementation}
+
+\chapter{Experiments and results}
+\label{ch:experiments}
+\input{5_experiments_results}
+
+\chapter{Conclusions and future work}
+\input{6_conclusions}
+
+\begin{appendices}
+
+    \chapter{Survey}
+    \label{app:survey}
+    \input{survey}
+
+\end{appendices}
+
+
+
+%\bibliographystyle{plain}
+\bibliographystyle{apalike}
+\bibliography{citations}
+
+\end{document}

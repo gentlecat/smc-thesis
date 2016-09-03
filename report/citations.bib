@@ -1,0 +1,295 @@
+@conference{porter2015acousticbrainz,
+  title = {AcousticBrainz: a community platform for gathering music information obtained from audio},
+  booktitle = {16th International Society for Music Information Retrieval (ISMIR) Conference},
+  year = {2015},
+  abstract = {We introduce the AcousticBrainz project, an open platform for gathering music
+information. At its core, AcousticBrainz is a database of music descriptors
+computed from audio recordings using a number of state-of-the-art Music
+Information Retrieval algorithms. Users run a supplied feature extractor on
+audio files and upload the analysis results to the AcousticBrainz server. All
+submissions include a MusicBrainz identifier allowing them to be linked to
+various sources of editorial information. The feature extractor is based on the
+open source Essentia audio analysis library. From the data submitted by the
+community, we run classifiers aimed at adding musically relevant semantic
+information. These classifiers can be developed by the community using tools
+available on the AcousticBrainz website. All data in AcousticBrainz is freely
+available and can be accessed through the website or API. For AcousticBrainz to
+be successful we need to have an active community that contributes to and uses
+this platform, and it is this community that will define the actual uses and
+applications of its data.},
+  author = {Alastair Porter and Dmitry Bogdanov and Robert Kaye and Roman Tsukanov and Serra, Xavier}
+}
+
+@conference {crosscolleval,
+	title = {Cross-collection evaluation for music classification tasks},
+	booktitle = {17th International Society for Music Information Retrieval Conference (ISMIR{\textquoteright}16)},
+	year = {2016},
+	month = {07/08/2016},
+	abstract = {Many studies in music classification are concerned with obtaining the highest possible cross-validation result. However, some studies have noted that cross-validation may be prone to biases and that additional evaluations based on independent out-of-sample data are desirable. In this paper we present a methodology and software tools for cross-collection evaluation for music classification tasks. The tools allow users to conduct large-scale evaluations of classifier models trained within the AcousticBrainz platform, given an independent source of ground-truth annotations, and its mapping with the classes used for model training. To demonstrate the application of this methodology we evaluate five models trained on genre datasets commonly used by researchers for genre classification, and use collaborative tags from Last.fm as an independent source of ground truth. We study a number of evaluation strategies using our tools on validation sets from 240,000 to 1,740,000 music recordings and discuss the results.},
+	author = {Dmitry Bogdanov and Alastair Porter and Perfecto Herrera and Xavier Serra}
+}
+
+@conference {essentia,
+	title = {ESSENTIA: an Audio Analysis Library for Music Information Retrieval},
+	booktitle = {International Society for Music Information Retrieval Conference (ISMIR{\textquoteright}13)},
+	year = {2013},
+	month = {04/11/2013},
+	pages = {493-498},
+	address = {Curitiba, Brazil},
+	abstract = {We present Essentia 2.0, an open-source C++ library for audio analysis and audio-based music information retrieval released under the Affero GPL license. It contains an extensive collection of reusable algorithms which implement audio input/output functionality, standard digital signal processing blocks, statistical characterization of data, and a large set of spectral, temporal, tonal and high-level music descriptors. The library is also wrapped in Python and includes a number of predefined executable extractors for the available music descriptors, which facilitates its use for fast prototyping and allows setting up research experiments very rapidly. Furthermore, it includes a Vamp plugin to be used with Sonic Visualiser for visualization purposes. The library is cross-platform and currently supports Linux, Mac OS X, and Windows systems. Essentia is designed with a focus on the robustness of the provided music descriptors and is optimized in terms of the computational cost of the algorithms. The provided functionality, specifically the music descriptors included in-the-box and signal processing algorithms, is easily expandable and allows for both research experiments and development of large-scale industrial applications.},
+	author = {Dmitry Bogdanov and Nicolas Wack and G{\'o}mez, E. and Sankalp Gulati and Perfecto Herrera and Mayor, O. and Gerard Roma and Justin Salamon and Zapata, J. R. and Serra, X.}
+}
+
+@article{sturmfuture,
+author = {Sturm, Bob L.},
+file = {:Users/roman/Dropbox/University/UPF/thesis/papers/CleverHans.pdf:pdf},
+mendeley-groups = {Master's Thesis},
+title = {{THE FUTURE OF SCIENTIFIC RESEARCH IN MUSIC INFORMATION RETRIEVAL}},
+year = {2014}
+}
+
+@article{magnatagatune,
+abstract = {Search by keyword is an extremely popular method for re- trieving music. To support this, novel algorithms that au- tomatically tag music are being developed. The conven- tional way to evaluate audio tagging algorithms is to com- pute measures of agreement between the output and the ground truth set. In this work, we introduce a new method for evaluating audio tagging algorithms on a large scale by collecting set-level judgments from players of a human computation game called TagATune. We present the de- sign and preliminary results of an experiment comparing five algorithms using this new evaluation metric, and con- trast the results with those obtained by applying several conventional agreement-based evaluation metrics.},
+author = {Law, E and West, Kris and Mandel, Michael and Bay, Mert},
+file = {:Users/roman/Dropbox/University/UPF/thesis/papers/02e7e520c4c28ac9a5000000.pdf:pdf},
+isbn = {9780981353708},
+journal = {10th International Society for Music Information Retrieval Conference (ISMIR 2009)},
+mendeley-groups = {Master's Thesis},
+pages = {387--392},
+title = {{Evaluation of algorithms using games: The case of music tagging}},
+url = {http://ismir2009.ismir.net/proceedings/OS5-5.pdf},
+year = {2009}
+}
+
+@article{tagatune,
+abstract = {Since its introduction at CHI 2004, the ESP Game has inspired many similar games that share the goal of gathering data from players. This paper introduces a new mechanism for collecting labeled data using “games with a purpose.” In this mechanism, players are provided with either the same or a different object, and asked to describe that object to each other. Based on each other's descriptions, players must decide whether they have the same object or not. We explain why this new mechanism is superior for input data with certain characteristics, introduce an enjoyable new game called “TagATune” that collects tags for music clips via this mechanism, and present findings on the data that is collected by this game.},
+author = {Law, Edith and Ahn, Luis Von},
+doi = {10.1145/1518701.1518881},
+file = {:Users/roman/Dropbox/University/UPF/thesis/papers/tagatune.pdf:pdf},
+isbn = {9781605582474},
+journal = {Proc. SIGCHI Conference on Human Factors in Computing Systems},
+mendeley-groups = {Master's Thesis},
+pages = {1--10},
+title = {{Input-Agreement : A New Mechanism for Collecting Data Using Human Computation Games}},
+year = {2009}
+}
+
+@article{downie2008mirex,
+abstract = {The Music Information Retrieval Evaluation eXchange (MIREX) is the community-based framework for the formal evaluation of Music Information Retrieval (MIR) systems and algorithms. By looking at the background, structure, challenges, and contributions of MIREX this paper provides some insights into the world of MIR research. Because MIREX tasks are defined by the community they reflect the interests, techniques, and research paradigms of the community as a whole. Both MIREX and MIR have a strong bias toward audio-based approaches as most MIR researchers have strengths in signal processing. Spectral-based approaches to MIR tasks have led to advancements in the MIR field but they now appear to be reaching their limits of effectiveness. This limitation is called the ``glass ceiling'' problem and the MIREX results data support its existence. The post-hoc analyses of MIREX results data indicate that there are groups of systems that perform equally well within various MIR tasks. There are many challenges facing MIREX and MIR research most of which have their root causes in the intellectual property issues surrounding music. The current inability of researchers to test their approaches against the MIREX test collections outside the annual MIREX cycle is hindering the rapid development of improved MIR systems.},
+annote = {In the majority of MIREX tasks you are given audio.},
+author = {Downie, J. Stephen},
+doi = {10.1250/ast.29.247},
+file = {:Users/roman/Dropbox/University/UPF/thesis/papers/10.1.1.466.8371.pdf:pdf},
+isbn = {1346-3969},
+issn = {1346-3969},
+journal = {Acoustical Science and Technology},
+keywords = {10,1250,247,29,43,75,ast,doi,evaluation,mirex,music information retrieval,pacs number,xz},
+mendeley-groups = {Master's Thesis},
+number = {4},
+pages = {247--255},
+title = {{The music information retrieval evaluation exchange (2005–2007): A window into music information retrieval research}},
+volume = {29},
+year = {2008}
+}
+
+@article{sturm2013gtzan,
+  author    = {Bob L. Sturm},
+  title     = {The {GTZAN} dataset: Its contents, its faults, their effects on evaluation,
+               and its future use},
+  journal   = {CoRR},
+  volume    = {abs/1306.1461},
+  year      = {2013},
+  url       = {http://arxiv.org/abs/1306.1461},
+  timestamp = {Mon, 01 Jul 2013 20:31:25 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/Sturm13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{tzanetakis2002,
+  title={Musical genre classification of audio signals},
+  author={Tzanetakis, George and Cook, Perry},
+  journal={Speech and Audio Processing, IEEE transactions on},
+  volume={10},
+  number={5},
+  pages={293--302},
+  year={2002},
+  publisher={IEEE}
+}
+
+@article{ballroom,
+  title={ISMIR 2004 audio description contest},
+  author={Cano, Pedro and G{\'o}mez, Emilia and Gouyon, Fabien and Herrera, Perfecto and Koppenberger, Markus and Ong, Beesuan and Serra, Xavier and Streich, Sebastian and Wack, Nicolas},
+  journal={Music Technology Group of the Universitat Pompeu Fabra, Tech. Rep},
+  year={2006}
+}
+
+@article{sturm2013,
+  abstract = {We argue that an evaluation of system behavior at the level of the music is required to usefully address the fundamental problems of music genre recognition (MGR), and indeed other tasks of music information retrieval, such as autotagging. A recent review of works in MGR since 1995 shows that most (82 {\%}) measure the capacity of a system to recognize genre by its classification accuracy. After reviewing evaluation in MGR, we show that neither classification accuracy, nor recall and precision, nor confusion tables, necessarily reflect the capacity of a system to recognize genre in musical signals. Hence, such figures of merit cannot be used to reliably rank, promote or discount the genre recognition performance of MGR systems if genre recognition (rather than identification by irrelevant confounding factors) is the objective. This motivates the development of a richer experimental toolbox for eval- uating any system designed to intelligently extract information from music signals.},
+  annote = {MGR - Music Genre Recogntion
+  FoM - Figure of merit},
+  author = {Sturm, Bob L.},
+  doi = {10.1007/s10844-013-0250-y},
+  file = {:Users/roman/Library/Application Support/Mendeley Desktop/Downloaded/Sturm - 2013 - Classification accuracy is not enough.pdf:pdf},
+  issn = {0925-9902},
+  journal = {Journal of Intelligent Information Systems},
+  keywords = {classification,evaluation,genre,music},
+  mendeley-groups = {MIR,Master's Thesis},
+  number = {3},
+  pages = {371--406},
+  title = {{Classification accuracy is not enough}},
+  url = {http://link.springer.com/10.1007/s10844-013-0250-y},
+  volume = {41},
+  year = {2013}
+}
+
+@inproceedings{hu2007exploring,
+  title={Exploring Mood Metadata: Relationships with Genre, Artist and Usage Metadata},
+  author={Hu, Xiao and Downie, J Stephen},
+  booktitle={ISMIR},
+  pages={67--72},
+  year={2007},
+  organization={Citeseer}
+}
+
+@inproceedings{dortmund,
+  title={A Benchmark Dataset for Audio Classification and Clustering},
+  author={Homburg, Helge and Mierswa, Ingo and M{\"o}ller, B{\"u}lent and Morik, Katharina and Wurst, Michael},
+  booktitle={ISMIR},
+  volume={2005},
+  pages={528--31},
+  year={2005}
+}
+
+@conference{bogdanov5taming,
+  title={Taming Wild Horses with Essentia Music Extractor},
+  booktitle = {16th International Society for Music Information Retrieval (ISMIR) Conference},
+  year = {2015},
+  author={Bogdanov, Dmitry and Porter, Alastair and Serra, Xavier}
+}
+
+@article{sturm2014simple,
+  title={A simple method to determine if a music information retrieval system is a ``horse''},
+  author={Sturm, Bob L},
+  journal={Multimedia, IEEE Transactions on},
+  volume={16},
+  number={6},
+  pages={1636--1644},
+  year={2014},
+  publisher={IEEE}
+}
+
+@inproceedings{bertin2011million,
+  title={The million song dataset},
+  author={Bertin-Mahieux, Thierry and Ellis, Daniel PW and Whitman, Brian and Lamere, Paul},
+  booktitle={ISMIR 2011: Proceedings of the 12th International Society for Music Information Retrieval Conference, October 24-28, 2011, Miami, Florida},
+  pages={591--596},
+  year={2011},
+  organization={University of Miami}
+}
+
+@phdthesis{guaus2009audio,
+  title = {Audio content processing for automatic music genre classification: descriptors, databases, and classifiers},
+  year = {2009},
+  school = {Universitat Pompeu Fabra},
+  abstract = {<div>This dissertation presents, discusses, and sheds some light on the problems that appear when computers try to automatically classify musical genres from audio signals. In particular, a method is proposed for the automatic music genre classification by using a computational approach that is inspired in music cognition and musicology in addition to Music Information Retrieval techniques. In this context, we design a set of experiments by combining the different elements that may affect the accuracy in the classification (audio descriptors, machine learning algorithms, etc.). We evaluate, compare and analyze the obtained results in order to explain the existing glass-ceiling in genre classification, and propose new strategies to overcome it. Moreover, starting from the polyphonic audio content processing we include musical and cultural aspects of musical genre that have usually been neglected in the current state of the art approaches.</div><div><br /></div><div>This work studies different families of audio descriptors related to timbre, rhythm, tonality and other facets of music, which have not been frequently addressed in the literature. Some of these descriptors are proposed by the author and others come from previous existing studies. We also compare machine learning techniques commonly used for classification and analyze how they can deal with the genre classification problem. We also present a discussion on their ability to represent the different classification models proposed in cognitive science. Moreover, the classification results using the machine learning techniques are contrasted with the results of some listening experiments proposed. This comparison drive us to think of a specific architecture of classifiers that will be justified and described in detail. It is also one of the objectives of this dissertation to compare results under different data configurations, that is, using different datasets, mixing them and reproducing some real scenarios in which genre classifiers could be used (huge datasets). As a conclusion, we discuss how the classification architecture here proposed can break the existing glass-ceiling effect in automatic genre classification.</div><div><br /></div><div>To sum up, this dissertation contributes to the field of automatic genre classification: a) It provides a multidisciplinary review of musical genres and its classification; b) It provides a qualitative and quantitative evaluation of families of audio descriptors used for automatic classification; c) It evaluates different machine learning techniques and their pros and cons in the context of genre classification; d) It proposes a new architecture of classifiers after analyzing music genre classification from different disciplines; e) It analyzes the behavior of this proposed architecture in different environments consisting of huge or mixed datasets.~</div>},
+  url = {http://www.dtic.upf.edu/~eguaus/phd/eguaus_phd_2009_genre_classification_A4.pdf},
+  author = {Guaus, Enric}
+}
+
+@article{schreiber2015,
+author = {Schreiber, Hendrik},
+file = {:Users/roman/Dropbox/University/UPF/thesis/papers/102{\_}Paper.pdf:pdf},
+journal = {16th International Society for Music Information Retrieval Conference (ISMIR 2015)},
+mendeley-groups = {Master's Thesis},
+pages = {241--247},
+title = {{Improving genre annotations for the million song dataset}},
+year = {2015}
+}
+
+@article{labelme,
+author = {Russell, Bryan C. and Torralba, Antonio and Murphy, Kevin P. and Freeman, William T.},
+doi = {10.1007/s11263-007-0090-8},
+file = {:Users/roman/Downloads/AIM-2005-025-new.pdf:pdf},
+issn = {0920-5691},
+journal = {International Journal of Computer Vision},
+mendeley-groups = {Master's Thesis},
+month = {oct},
+number = {1-3},
+pages = {157--173},
+title = {{LabelMe: A Database and Web-Based Tool for Image Annotation}},
+url = {http://link.springer.com/10.1007/s11263-007-0090-8},
+volume = {77},
+year = {2007}
+}
+
+@article{brat,
+author = {Stenetorp, Pontus and Pyysalo, Sampo and Topi{\'{c}}, Goran and Ohta, Tomoko and Ananiadou, Sophia and Tsujii, Jun'ichi},
+file = {:Users/roman/Downloads/p102-stenetorp.pdf:pdf},
+mendeley-groups = {Master's Thesis},
+month = {apr},
+pages = {102--107},
+publisher = {Association for Computational Linguistics},
+title = {{BRAT: a web-based tool for NLP-assisted text annotation}},
+url = {http://dl.acm.org/citation.cfm?id=2380921.2380942},
+year = {2012}
+}
+
+@inproceedings{millionsongdataset,
+  title={The million song dataset},
+  author={Bertin-Mahieux, Thierry and Ellis, Daniel PW and Whitman, Brian and Lamere, Paul},
+  booktitle={ISMIR 2011: Proceedings of the 12th International Society for Music Information Retrieval Conference, October 24-28, 2011, Miami, Florida},
+  pages={591--596},
+  year={2011},
+  organization={University of Miami}
+}
+
+@article{voorhees2005,
+  title={The Text REtrieval Conference},
+  author={Voorhees, Ellen M and Harman, Donna K},
+  journal={TREC: Experiment and evaluation in information retrieval},
+  pages={3},
+  year={2005},
+  publisher={Mit Press}
+}
+
+@inproceedings{gruzd2007evalutron,
+  title={Evalutron 6000: collecting music relevance judgments},
+  author={Gruzd, Anatoliy A and Downie, J Stephen and Jones, M Cameron and Lee, Jin Ha},
+  booktitle={Proceedings of the 7th ACM/IEEE-CS joint conference on Digital libraries},
+  pages={507--507},
+  year={2007},
+  organization={ACM}
+}
+
+@article{ismir2004description,
+  title = {ISMIR 2004 Audio Description Contest},
+  year = {2006},
+  abstract = {In this paper we report on the ISMIR 2004 Audio Description Contest. We first detail the contest organization, evaluation metrics, data and infrastructure. We then provide the details and results of each contest in turn. Published papers and algorithm source codes are given when originally available. We finally discuss some aspects of these contests and propose ways to organize future, improved, audio description contests.},
+  url = {files/publications/MTG-TR-2006-02.pdf},
+  author = {Cano, P. and Emilia G{\'o}mez and Gouyon, F. and Herrera, P. and Koppenberger, M. and Ong, B. and Serra, Xavier and Streich, S. and Nicolas Wack}
+}
+
+@article{farrell2009api,
+  title={API Keys to the Kingdom},
+  author={Farrell, Stephen},
+  journal={IEEE Internet Computing},
+  volume={13},
+  number={5},
+  pages={91},
+  year={2009},
+  publisher={IEEE Computer Society}
+}
+
+@article{hu2008,
+abstract = {Recent music information retrieval (MIR) research pays increasing attention to music classification based on moods expressed by music pieces. The first Audio Mood Classification (AMC) evaluation task was held in the 2007 running of the Music Information Retrieval Evaluation eXchange (MIREX). This paper describes important issues in setting up the task, including dataset construction and ground-truth labeling, and analyzes human assessments on the audio dataset, as well as system performances from various angles. Interesting findings include system performance differences with regard to mood clusters and the levels of agreement amongst human judgments regarding mood labeling. Based on these analyses, we summarize experiences learned from the first community scale evaluation of the AMC task and propose recommendations for future AMC and similar evaluation tasks. 1.},
+annote = {AMC - Audio Mood Classification
+APM - Associated Production Music},
+author = {Hu, Xiao and Downie, J Stephen and Laurier, Cyril and Bay, Mert and Ehmann, Andreas F},
+isbn = {978-0-615-24849-3},
+journal = {Statistics},
+mendeley-groups = {Master's Thesis},
+pages = {462--467},
+title = {{The 2007 MIREX audio mood classification task: Lessons learned}},
+url = {http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.182.2004{\&}amp;rep=rep1{\&}amp;type=pdf},
+year = {2008}
+}

@@ -1,0 +1,89 @@
+We take the following approach:
+\begin{enumerate}
+    \item Implement a platform for creating and sharing datasets
+    \item Implement a way to build machine learning models based on datasets
+    \item Organize dataset creation challenges
+    \item Provide a way to get feedback from users
+\end{enumerate}
+
+\emph{The focus will be on datasets and their structure instead of algorithms.}
+
+%%%%%%
+
+\section{Dataset creation and sharing}
+
+As described in the motivation, datasets are important part of MIR systems. Some of the datasets that are currently used have issues with the way they are built. Sometimes it's hard to reproduce results because it's unclear which specific recording is used. Sometimes datasets disappear from official sources and become difficult to find.
+
+In this project the idea is to have a centralized directory of datasets which people can use to store their datasets, find datasets created by other members of the community and use them. In addition to storing datasets, we also provide a way to create datasets.
+
+Dataset creation can be implemented in several ways:
+\begin{itemize}
+    \item Importing datasets created externally using user tagging tools, scraping data from various websites, etc.
+    \item Manual creation using a web-interface
+    \item Automated generation of datasets using labels, assigned to recordings by users
+\end{itemize}
+
+Structure of each dataset is simply a set of named classes with recordings in them. We'll require to use permanent identifiers (MBIDs) to reference recordings. This will solve an important issue of identifying items in a dataset. Many existing datasets are based on unknown audio excerpts or other types if items which don't have any useful identifiers. This means that it's impossible to reconstruct such datasets and reproduce work that's been done before. And there is no way to map them to other datasets. In AcousticBrainz each low-level submission is associated with an entity in MusicBrainz database using an MBID.
+
+Each dataset will be assigned a unique identifier and listed on the website. Everyone will be able to browse and download it for further use.
+
+The whole dataset creation system doesn't necessarily need to be closely tied to AcousticBrainz. Everyone should be able to retrieve datasets and use them in any other project with other tools. One of the most important aspects of the AcousticBrainz project is that all data is open. We believe that this open policy helps community share new ideas and advancements.
+
+%%%%%%
+
+\section{Building machine learning models}
+
+After a dataset is created, it can be used to train a machine learning model for extracting high-level data. AcousticBrainz project doesn't have direct access to audio files after they are analyzed by a client software\footnote{\url{https://acousticbrainz.org/download}}, only a set of low-level descriptors that were extracted by the Essentia library embedded in a client. These descriptors, however, can still be used with the \textit{Music extractor} of the Essentia library\footnote{\url{http://essentia.upf.edu/documentation/streaming_extractor_music.html}}.
+
+It's important to make the work reproducible, so we share all the code that is written for the project. All of the components used in the AcousticBrainz project are open-source, including web server for collecting data, extractor, and software for evaluation of that data.
+
+%%%%%%
+
+\section{Dataset creation challenges}
+
+\subsection{Overview}
+
+One way to encourage people to build datasets for specific classification tasks is to organize challenges with a goal to build datasets that result in an accurate model for extracting high-level data. It's important that participants are able to iterate on results quickly using tools that we provide to them. MIREX challenges are conducted annually, which slows down improvements. We'd like to speed up this cycle.
+
+A significant difference from MIREX would be that we are focusing on datasets for \emph{classification} tasks, not underlying algorithms that do feature extraction from audio files and train classifiers.
+
+Everyone will be allowed to participate. We hope that simplifying the tools and making the process open will be very beneficial for the MIR community.
+
+\subsection{Potential issues}
+
+There are a couple of issues that needs to be considered during the implementation of dataset creation challenges:
+
+\begin{enumerate}
+    \item There needs to be an independent dataset that will be used to measure accuracy of all models generated from submissions. This dataset can be created by the organizer.
+    \item Datasets that are submitted for a challenge need to be hidden from the public until the challenge ends. Otherwise anyone would be able to use pretty much the same dataset that other person submitted, make slight changes and get higher accuracy as a result. That would result in an unfair competition.
+\end{enumerate}
+
+\subsubsection{Cross-validation with an independent dataset}
+
+\emph{This is probably the most important issue that needs to be solved to make a more reliable system for conducting the challenges.} Having a separate dataset, that is used to cross-validate all datasets submitted by users, is essential to make sure that all submissions can be measured against each other. Otherwise, someone can come up with a dataset that would have a model which will have a 100\% accuracy during training and win a challenge. The problem is that dataset will be highly overfitted and useless for any real-world application.
+
+A solution is to make model training from datasets submitted for a challenge a two step process:
+\begin{enumerate}
+    \item Training a model based only on contents of the dataset.
+    \item Applying model to an independent dataset and measuring resulting accuracy.
+\end{enumerate}
+
+Cross-validation dataset can be created by organizers of a challenge. Ideally, multiple people should be able to collaborate on creation of this kind of dataset. After each dataset goes through the training process and produces a best working model, that model is tested on cross-validation dataset and results are compared with other datasets. Testing means comparing if class label that each recording is assigned matches expected value that is defined in cross-validation dataset.
+
+Structure of that independent dataset (set of classes used in it) needs to be the same as in all submissions. It's also important that definitions of classes (labeling) for each recording is correct, so that challenge participants can trust results of accuracy measurements based on it. In order to gain that trust, validation dataset should be made public. This, however, introduces another constraint for creation process: all datasets created for a challenge will need to have recordings filtered so that they don't match ones in the validation dataset. Otherwise this might open ways to cheat the evaluation system.
+
+\subsubsection{Dataset privacy}
+
+Another important thing to do, to be able to conduct fair challenges, is to hide contents of datasets submitted for a challenge. Otherwise, anyone can replicate the result by making slight modifications to the original dataset that would be enough to increase accuracy and submit it for the same challenge. This would create an unfair competition for participants.
+
+Contents of all submissions can be hidden until the end of submission process. After that it is important to publish all of the submissions, so that other people can reproduce the results and do further improvements. The last part is essential, as one of the main goals of AcousticBrainz project is to keep all the data public.
+
+%%%%%%
+
+\section{User feedback}
+
+In order to improve quality of a model and underlying dataset there needs to be a way to do meaningful iterations on them. User feedback can help find errors in the output that the model produces. It can also be an additional way to populate dataset with more items. Users can give their opinion on whether the output is right or wrong. And, possibly, which \textit{class} recording should be in if it has not been classified correctly. Set of classes that will be presented to a user can be obtained from a version of the dataset that was used to train the model. There might be an option for user to say that recording doesn't belong in any of the existing classes and suggest some other one.
+
+Feedback submitted by users can be used by dataset author or other creators to improve contents of datasets related to a specific classification problem (genre, mood, etc.). They can include recordings that received significant number of votes into a dataset to make it more comprehensive.
+
+This feedback can also be used to measure overall performance of a model. We can decide which ones to keep \emph{active}\footnote{Active models are used to calculate high-level data from all submissions.} and which ones need to be deactivated or replaced with some that might perform better.
